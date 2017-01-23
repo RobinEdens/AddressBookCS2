@@ -1,4 +1,7 @@
-
+/**
+ * Address object that stores a person's address, city, state, and zip code
+ * @author Robin A.
+ */
 public class Address {
 	private String street;
 	private String city;
@@ -70,6 +73,6 @@ public class Address {
 	 */
 	@Override
 	public String toString() {
-		return "Address [street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + "]";
+		return String.format(" Address: %s, %s, %s %s, ", street, city, state, zip);
 	}
 }

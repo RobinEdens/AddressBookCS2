@@ -1,4 +1,8 @@
-
+/**
+ * Person object that stores someone's name
+ * @author Robin A.
+ *
+ */
 public class Person {
 	private String fName;
 	private String lName;
@@ -42,6 +46,6 @@ public class Person {
 	 */
 	@Override
 	public String toString() {
-		return "Person [fName=" + fName + ", lName=" + lName + "]";
+		return String.format("Name: %s %s, ", fName, lName);
 	}
 }

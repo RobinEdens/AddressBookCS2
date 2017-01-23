@@ -1,16 +1,24 @@
-
+/**
+ * Child class of Person that stores a birthday object, an address object, notes about them, and their status (for an address book)
+ * @author Robin A.
+ *
+ */
 public class ExtPerson extends Person {
+	
 	private Date bday;
 	private String notes;
 	private Address addr;
 	private char status;
 	
 	public ExtPerson() {
-		
+		super();
 	}
 	
-	public ExtPerson(int m, int d, int y, String notes, char status) {
+	public ExtPerson(String fName, String lName, int m, int d, int y, String notes, Address addr, char status) {
+		super(fName, lName);
+		setAddr(addr);
 		bday = new Date (m,d,y);
+		setStatus(status);
 	}
 	
 	/**
@@ -67,9 +75,6 @@ public class ExtPerson extends Person {
 	 */
 	@Override
 	public String toString() {
-		return "ExtPerson [bday=" + bday + ", notes=" + notes + ", addr=" + addr + ", status=" + status + "]";
+		return super.toString() + String.format(bday + "Notes: " + notes + addr + "Status: " + status);
 	}
-	
-	
-	
 }

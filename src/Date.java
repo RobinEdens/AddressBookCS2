@@ -1,4 +1,8 @@
-
+/**
+ * Date class that stores a birthday
+ * @author Robin A.
+ *
+ */
 public class Date {
 	private int day;
 	private int month;
@@ -8,7 +12,7 @@ public class Date {
 		
 	}
 	
-	public Date(int day, int month, int year) {
+	public Date(int month, int day, int year) {
 		setDay(day);
 		setMonth(month);
 		setYear(year);
@@ -56,6 +60,6 @@ public class Date {
 	 */
 	@Override
 	public String toString() {
-		return "Date [day=" + day + ", month=" + month + ", year=" + year + "]";
+		return String.format("DOB: %s/%s/%s, ", month, day, year);
 	}
 }
