@@ -10,13 +10,28 @@ public class ExtPerson extends Person {
 	private Address addr;
 	private char status;
 	
+	/**
+	 * Default constructor
+	 */
 	public ExtPerson() {
 		super();
 	}
 	
+	/**
+	 * Overloaded constructor
+	 * @param fName
+	 * @param lName
+	 * @param m
+	 * @param d
+	 * @param y
+	 * @param notes
+	 * @param addr
+	 * @param status
+	 */
 	public ExtPerson(String fName, String lName, int m, int d, int y, String notes, Address addr, char status) {
 		super(fName, lName);
 		setAddr(addr);
+		setNotes(notes);
 		bday = new Date (m,d,y);
 		setStatus(status);
 	}

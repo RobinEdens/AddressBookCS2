@@ -1,11 +1,27 @@
 /**
- * 
+ * AddressBook to store and manipulate objects of the ExtPerson type in the format of an address book. Allows search, grabbing info
+ * printing all info, printing by birthday, and printing by status
  * @author Robin A.
  */
 import java.util.Scanner;
 public class AddressBook {
 	private ExtPerson[] peopleList = new ExtPerson[10];
 	private int filledArray;
+	
+	/**
+	 * Default constructor
+	 */
+	public AddressBook() {
+		
+	}
+	
+	/**
+	 * Overload constructor to set array
+	 * @param addressBook
+	 */
+	public AddressBook(ExtPerson[] addressBook) {
+		setPeopleList(addressBook);
+	}
 	
 	/**
 	 * @return the peopleList array
@@ -126,7 +142,6 @@ public class AddressBook {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		AddressBook address = new AddressBook();
 		Scanner userInput = new Scanner(System.in);
 		// Might have misinterpreted the instructions, but it mentioned having the ability to process 10 entries but only have 7 for the example, so the private
 		// ExtPerson array above allows up to 10, while the temp array here is to pass along the 7 values in a quick manner. Assuming this is what you meant but too late to ask
@@ -139,8 +154,7 @@ public class AddressBook {
 					new ExtPerson("Cliff", "Bleszinski", 2, 12, 1975, "None", new Address("620 Crossroads Blvd", "Cary", "NC", 27518), 'f'),
 					new ExtPerson("Robin", "Walker", 2, 1, 1976, "None", new Address("PO Box 1688", "Bellevue", "WA", 98009), 'F') 
 					};
-		address.setPeopleList(filledList);
-		
+		AddressBook address = new AddressBook(filledList);
 		int menuOption = 0; 
 		while (menuOption != 9) {
 			address.showMenu();

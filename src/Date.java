@@ -8,10 +8,19 @@ public class Date {
 	private int month;
 	private int year;
 	
+	/**
+	 * Default constructor
+	 */
 	public Date() {
 		
 	}
 	
+	/**
+	 * Overloaded constructor
+	 * @param month
+	 * @param day
+	 * @param year
+	 */
 	public Date(int month, int day, int year) {
 		setDay(day);
 		setMonth(month);

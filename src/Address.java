@@ -8,10 +8,20 @@ public class Address {
 	private String state;
 	private int zip;
 	
+	/**
+	 * Default constructor
+	 */
 	public Address () {
 		
 	}
 	
+	/**
+	 * Overloaded constructor
+	 * @param street
+	 * @param city
+	 * @param state
+	 * @param zip
+	 */
 	public Address (String street, String city, String state, int zip) {
 		setStreet(street);
 		setCity(city);
