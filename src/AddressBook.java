@@ -1,6 +1,12 @@
 /**
  * AddressBook to store and manipulate objects of the ExtPerson type in the format of an address book. Allows search, grabbing info
- * printing all info, printing by birthday, and printing by status
+ * printing all info, printing by birthday, and printing by status.
+ * 
+ * filledArray  seems redundant and unnecessary, but it was originally designed for when I thought you wanted the 7 values
+ * passed to the array, but still have the option to have up to 10, and while it wouldn't be too hard to change all the
+ * filledArray values to peopleList.length, keeping it this way still keeps the ability to handle an array that isn't
+ * fully stored. Original issue came from the searches trying to make a comparison against a null object for the non-filled
+ * indexes, so comparing to the filled value instead prevented such from happening
  * @author Robin A.
  */
 import java.util.Scanner;
@@ -146,14 +152,17 @@ public class AddressBook {
 		// Might have misinterpreted the instructions, but it mentioned having the ability to process 10 entries but only have 7 for the example, so the private
 		// ExtPerson array above allows up to 10, while the temp array here is to pass along the 7 values in a quick manner. Assuming this is what you meant but too late to ask
 		ExtPerson[] filledList = {
-					new ExtPerson("John", "Carmack", 8, 20, 1970, "None", new Address("3819 Town Crossing", "Mesquite", "TX", 75150), 'B'),
-					new ExtPerson("John", "Romero", 10, 28, 1967, "None", new Address("3819 Town Crossing", "Mesquite", "TX", 75150), 'B'),
-					new ExtPerson("American", "McGee", 12, 13, 1972, "None", new Address("1146 YanAn West Road", "Shanghai", "China", 200050), 'E'), 
-					new ExtPerson("Tom", "Hall", 9, 2, 1964, "None", new Address("3819 Town Crossing", "Mesquite", "TX", 75150),'B'),
-					new ExtPerson("Warren", "Spector", 10, 2, 1955, "None", new Address("1717 W 6th St Ste 210", "Austin", "TX", 78703), 'f'),
-					new ExtPerson("Cliff", "Bleszinski", 2, 12, 1975, "None", new Address("620 Crossroads Blvd", "Cary", "NC", 27518), 'f'),
-					new ExtPerson("Robin", "Walker", 2, 1, 1976, "None", new Address("PO Box 1688", "Bellevue", "WA", 98009), 'F') 
-					};
+				new ExtPerson("John", "Carmack", 8, 20, 1970, "Coworker", new Address("3819 Town Crossing", "Mesquite", "TX", 75150), 'B'),
+				new ExtPerson("John", "Romero", 10, 28, 1967, "Coworker", new Address("3819 Town Crossing", "Mesquite", "TX", 75150), 'B'),
+				new ExtPerson("American", "McGee", 12, 13, 1972, "Owes money", new Address("1146 YanAn West Road", "Shanghai", "China", 200050), 'E'), 
+				new ExtPerson("Tom", "Hall", 9, 2, 1964, "Coworker", new Address("3819 Town Crossing", "Mesquite", "TX", 75150),'B'),
+				new ExtPerson("Warren", "Spector", 10, 2, 1955, "Meeting on tuesday", new Address("1717 W 6th St Ste 210", "Austin", "TX", 78703), 'f'),
+				new ExtPerson("Cliff", "Bleszinski", 2, 12, 1975, "N/A", new Address("620 Crossroads Blvd", "Cary", "NC", 27518), 'f'),
+				new ExtPerson("Robin", "Walker", 2, 1, 1976, "Brother", new Address("PO Box 1688", "Bellevue", "WA", 98009), 'F'),
+				new ExtPerson("Chris", "Metzen", 11, 22, 1973, "HR Rep", new Address("16215 Alton Pkwy", "Irvine", "CA", 92618), 'B') ,
+				new ExtPerson("Hideki ", "Kamiya", 12, 19, 1970, "In-law", new Address("123 Fake Street", "Seattle", "WA", 98101), 'F'),
+				new ExtPerson("Hideo", "Kojima", 8, 24, 1963, "Out of town", new Address("456 Street Ave SW", "Denver", "CO", 80123), 'f') 
+				};
 		AddressBook address = new AddressBook(filledList);
 		int menuOption = 0; 
 		while (menuOption != 9) {
@@ -186,7 +195,7 @@ public class AddressBook {
 				address.printBirthdayList(birthSearch);
 				break;
 			case 4:
-				System.out.println("Which status would you like to search?");
+				System.out.println("Which status would you like to search? F for family, f for friend, B for business, or E for enemy");
 				address.printStatusList(userInput.next().charAt(0));
 				break;
 			case 5:

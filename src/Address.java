@@ -83,6 +83,6 @@ public class Address {
 	 */
 	@Override
 	public String toString() {
-		return String.format(" Address: %s, %s, %s %s, ", street, city, state, zip);
+		return String.format(", Address: %s, %s, %s %s, ", street, city, state, zip);
 	}
 }
